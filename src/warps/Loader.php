@@ -95,7 +95,10 @@ Select a warp"
 		
 		
 	}
-	
+	public function nombreWarp($warp){
+	$cfg = new Config($this->getDataFolder()."Warp-Data/".$warp.".yml", Config::YAML);
+		return $cfg->get("warp-name");
+	}
 	
 	public static function countWarps(){
 		
