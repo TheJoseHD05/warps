@@ -24,8 +24,8 @@ public static function enableLevelsWarps(){
 	$name = str_replace(".yml", "", $files);
 	if($name == "") continue;
 	$warp = new Config($this->getDataFolder()."Warps-Data/".$name.".yml", Config::YAML);
-	if(empty($warp->get("level"))) return;
-	$level = $warp->get("level");
+	if(empty($warp->get("warp-level"))) return;
+	$level = $warp->get("warp-level");
 	$this->getServer()->loadLevel($level);
   }
   }
