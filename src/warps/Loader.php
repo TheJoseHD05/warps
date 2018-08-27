@@ -71,6 +71,25 @@ This warp does not exist verify the name");
  }
   
   
+public function onCommand(CommandSender $sender, Command $command, $label, array $args):bool{
+	switch($command->getName()){  
+  
+		case "setwarp":
+			if($sender->isOp()){
+			if(!empty($args[0]){
+				$name = $args[0];
+				self::createWarp($sender,$name);
+			}
+			   }
+			   return true;
+			   case "delwarp":
+			   if($sender->isOp()){
+				if(!empty($args[0]){
+					$name = $args[0];
+					self::deleteWarp($sender,$name);
+				}
+			   }
+				   return true;
   
   
   
@@ -79,11 +98,8 @@ This warp does not exist verify the name");
   
   
   
-  
-  
-  
-  
-  
+	}
+}
   
   
   
