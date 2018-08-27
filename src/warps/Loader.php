@@ -79,6 +79,22 @@ This warp does not exist verify the name");
 	 $player->sendMessage($this->title."Welcome to warp : ".$name);
 	 return true;
  }
+	
+	public static function warpUI(){
+	$paquete = ModalFormRequestPacket();
+		$paquete->formId = 444444444;
+		$datos = array();
+		
+		$datos = array(
+		"title" => "Warps in the Server!",
+		"type" => "form",
+		"content" => "
+Select a warp"
+		);
+		
+		
+		
+	}
   
 public function onCommand(CommandSender $sender, Command $command, $label, array $args):bool{
 	switch($command->getName()){  
