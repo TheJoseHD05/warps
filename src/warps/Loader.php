@@ -32,7 +32,28 @@ public static function enableLevelsWarps(){
 }
   
   
-  
+ public static function createWarp(Player $player , $warp){
+	 
+if(file_exist($this->getDataFolder()."Warps-Data/".$warp.".yml")){
+$player->sendMessage($this->title."This warp already exists");	
+}else{
+	$x = $player->getX();
+	$y = $player->getY()+1;
+	$z = $player->getZ();
+	$pos = array($x,$y,$z);
+	$level = $player->getLevel();
+$data = new Config($this->getDataFolder()."/".$warp.".yml", Config::YAML,[
+	"warp-name" => $warp,
+	"warp-position" => $pos,
+	"warp-level" => $level,
+	]);
+	$data->save();
+	
+}
+	 	 
+	 
+ }	 
+	 
   
   
   
