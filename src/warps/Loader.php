@@ -69,7 +69,16 @@ This warp does not exist verify the name");
 	 
 	 
  }
-  
+ public static function tpWarp($player,$warp){
+	$cfg = new Config($this->getDataFolder()."Warp-Data/".$warp.".yml", Config::YAML);
+	 $data = $cfg->get("warp-position");
+	 $pos = new Vector3($data[0],$data[1],$data[2]);
+	 $level = $this->getServer()->getLevelByName($cfg->get("warp-level"));
+	 $name = $cfg->get("warp-name");
+	 $player->teleport($pos,$level);
+	 $player->sendMessage($this->title."Welcome to warp : ".$name);
+	 return true;
+ }
   
 public function onCommand(CommandSender $sender, Command $command, $label, array $args):bool{
 	switch($command->getName()){  
