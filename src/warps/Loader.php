@@ -42,7 +42,7 @@ $player->sendMessage($this->title."This warp already exists");
 	$z = $player->getZ();
 	$pos = array($x,$y,$z);
 	$level = $player->getLevel();
-$data = new Config($this->getDataFolder()."/".$warp.".yml", Config::YAML,[
+$data = new Config($this->getDataFolder()."Warps-Data/".$warp.".yml", Config::YAML,[
 	"warp-name" => $warp,
 	"warp-position" => $pos,
 	"warp-level" => $level,
