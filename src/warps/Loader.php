@@ -99,7 +99,9 @@ Select a warp"
 	$cfg = new Config($this->getDataFolder()."Warp-Data/".$warp.".yml", Config::YAML);
 		return $cfg->get("warp-name");
 	}
-	
+	public static function listWarp(Player $player){
+		
+	}
 	public static function countWarps(){
 		
 $cantidad = count(array_filter(scandir("Warps-Data/",function($archivo){ return substr($archivo,strlen($archivo)-4)===".yml";})));	
@@ -124,6 +126,12 @@ public function onCommand(CommandSender $sender, Command $command, $label, array
 					self::deleteWarp($sender,$name);
 				}
 			   }
+				   return true;
+				   case "listwarp":
+				   if($sender->isOp()){
+				self::listWarp($sender);	   
+					   
+				   }
 				   return true;
   
   
