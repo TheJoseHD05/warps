@@ -48,6 +48,7 @@ $data = new Config($this->getDataFolder()."/".$warp.".yml", Config::YAML,[
 	"warp-level" => $level,
 	]);
 	$data->save();
+	$player->sendMessage($this->title."Warp created name : ".$warp." in X:".$x." Y:".$y." Z:".$z." Level:".$level." is correct");
 	
 }
 	 	 
