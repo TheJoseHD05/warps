@@ -57,7 +57,18 @@ $data = new Config($this->getDataFolder()."/".$warp.".yml", Config::YAML,[
 	 
   
   
-  
+ public static function deleteWarp(Player $player , $warp){
+	 
+if(file_exist($this->getDataFolder()."Warps-Data/".$warp.".yml")){
+unlink($this->getDataFolder()."Warp-Data/".$warp.".yml");
+	$player->sendMessage($this->title." Warp removed");
+}else{
+$player->sendMessage($this->title."
+This warp does not exist verify the name");	
+}
+	 
+	 
+ }
   
   
   
