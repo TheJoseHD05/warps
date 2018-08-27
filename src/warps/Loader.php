@@ -95,6 +95,13 @@ Select a warp"
 		
 		
 	}
+	
+	
+	public static function countWarps(){
+		
+$cantidad = count(array_filter(scandir("Warps-Data/",function($archivo){ return substr($archivo,strlen($archivo)-4)===".yml";})));	
+return $cantidad;		
+	}
   
 public function onCommand(CommandSender $sender, Command $command, $label, array $args):bool{
 	switch($command->getName()){  
