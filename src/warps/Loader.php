@@ -92,12 +92,22 @@ This warp does not exist verify the name");
 Select a warp"
 		);
 		
-		
+	foreach(self::listwarpui() as $warp){
+	$datos["buttons"][]= array("text" => $warp);	
+	}
 		
 	}
-	public function nombreWarp($warp){
-	$cfg = new Config($this->getDataFolder()."Warp-Data/".$warp.".yml", Config::YAML);
-		return $cfg->get("warp-name");
+	public static function listwarpui(){
+	if(empty($this->getDataFolder()."Warps-Data/")) return;
+	$scan = scandir($this->getDataFolder()."Warps-Data/");
+	foreach($scan as $files){
+	if($files !== ".." and $files !== "."){
+	$name = str_replace(".yml", "", $files);
+	if($name == "") continue;
+	$warp = new Config($this->getDataFolder()."Warps-Data/".$name.".yml", Config::YAML);	
+	return $warp->get("warp-name");	
+	}
+	}
 	}
 	public static function listWarp(Player $player){
 		
